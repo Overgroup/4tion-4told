@@ -31,7 +31,6 @@ if (process.env.TWITTER_CONSUMER_KEY) {
 
 var routes = require('./routes/index');
 var twilio_receive = require('./routes/twilio-receive');
-var twilio_send = require('./routes/twilio-send');
 
 var app = express();
 
@@ -45,7 +44,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', routes);
-app.use('/twilio-send', twilio_send);
 app.use('/twilio-receive', twilio_receive);
 
 app.use(express.static(path.join(__dirname, 'public')));
